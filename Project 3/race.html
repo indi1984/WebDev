@@ -8,21 +8,21 @@
     </head>
     <body>
         <h1>Race Registration!</h1>
-        <form action="/race">
+        <form action="">
             <div>
-                <label for="first">First Name</label>
+                <label for="firstName">First Name</label>
                 <input
                     type="text"
-                    id="first"
-                    name="first"
+                    id="firstName"
+                    name="firstName"
                     placeholder="First Name"
                     required
                 />
-                <label for="last">Last Name</label>
+                <label for="lastName">Last Name</label>
                 <input
                     type="text"
-                    id="last"
-                    name="last"
+                    id="lastName"
+                    name="lastName"
                     placeholder="Last Name"
                     required
                 />
@@ -33,53 +33,54 @@
                     <input
                         type="radio"
                         name="type"
-                        id="FunRun5k"
-                        value="Fun Run 5k"
+                        id="funRun5k"
+                        value="funRun5k"
                     />
-                    <label for="Fun Run 5">Fun Run 5k</label>
+                    <label for="funRun5k">Fun Run 5k</label>
                 </div>
                 <div>
                     <input
                         type="radio"
                         name="type"
-                        id="HalfMarathon"
-                        value="Half Marathon"
+                        id="halfMarathon"
+                        value="halfMarathon"
                     />
-                    <label for="Half Marathon">Half Marathon</label>
+                    <label for="halfMarathon">Half Marathon</label>
                 </div>
                 <div>
                     <input
                         type="radio"
                         name="type"
-                        id="FullMarathon"
-                        value="FullMarathon"
+                        id="fullMarathon"
+                        value="fullMarathon"
                     />
-                    <label for="Full Marathon">Full Marathon</label>
+                    <label for="fullMarathon">Full Marathon</label>
                 </div>
-            </div>
-            <br />
-            <div>
-                <label for="email">Email</label>
-                <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Email"
-                    required
-                />
-                <label for="password">Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Password"
-                    minlength="4"
-                    required
-                />
             </div>
             <div>
                 <p>
-                    <label for="age">Select Age Group:</label>
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="user@emailservice.xxx"
+                        required
+                    />
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Password"
+                        minlength="4"
+                        required
+                    />
+                </p>
+            </div>
+            <div>
+                <p>
+                    <label for="ageGroup">Select Age Group:</label>
                     <select name="ageGroup" id="ageGroup" required>
                         <option value="" selected>
                             --Please choose your age group.--
