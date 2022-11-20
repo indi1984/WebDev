@@ -33,7 +33,14 @@
             </p>
             <p>
                 <label for="number">Enter a number:</label>
-                <input id="number" type="number" name="number" />
+                <input
+                    id="number"
+                    type="number"
+                    name="number"
+                    min="1"
+                    max="10"
+                    step="3"
+                />
             </p>
             <button>Submit</button>
         </form>
@@ -55,6 +62,59 @@
         <form action="https://www.youtube.com/results">
             <input type="text" name="search_query" />
             <button>Search YouTube</button>
+        </form>
+
+        <h2>More Inputs</h2>
+        <form action="/birds">
+            <input type="checkbox" name="Agree" id="agree" checked />
+            <label for="agree">Agree</label>
+            <br />
+            <p>
+                <label for="Extra Small">XS:</label>
+                <input type="radio" name="size" id="" value="xs" />
+                <label for="Small">S:</label>
+                <input type="radio" name="size" id="" value="s" />
+                <label for="Medium">M:</label>
+                <input type="radio" name="size" id="" value="m" />
+            </p>
+            <br />
+            <h3>Even More Inputs</h3>
+            <p>
+                <label for="meal">Please Select an Entree</label>
+                <select name="meal" id="meal">
+                    <option value="" selected>
+                        --Please choose an option--
+                    </option>
+                    <option value="fish">Fish</option>
+                    <option value="veg">Vegetarian</option>
+                    <option value="steak">Steak</option>
+                </select>
+            </p>
+            <br />
+            <p>
+                <label for="cheese">Amount of Cheese</label>
+                <input
+                    type="range"
+                    id="cheese"
+                    min="1"
+                    max="100"
+                    step="7"
+                    name="cheese_Level"
+                />
+            </p>
+            <br />
+            <p>
+                <label for="requests">Any special requests?</label>
+                <br />
+                <textarea
+                    name="requests"
+                    id="requests"
+                    rows="10"
+                    cols="20"
+                    placeholder="Type something here:"
+                ></textarea>
+            </p>
+            <button>Submit</button>
         </form>
     </body>
 </html>
