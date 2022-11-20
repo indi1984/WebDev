@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Race Registration!</title>
+    </head>
+    <body>
+        <h1>Race Registration!</h1>
+        <form action="/race">
+            <div>
+                <label for="first">First Name</label>
+                <input
+                    type="text"
+                    id="first"
+                    name="first"
+                    placeholder="First Name"
+                    required
+                />
+                <label for="last">Last Name</label>
+                <input
+                    type="text"
+                    id="last"
+                    name="last"
+                    placeholder="Last Name"
+                    required
+                />
+            </div>
+            <div>
+                <h2>Select a race:</h2>
+                <div>
+                    <input
+                        type="radio"
+                        name="type"
+                        id="FunRun5k"
+                        value="Fun Run 5k"
+                    />
+                    <label for="Fun Run 5">Fun Run 5k</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        name="type"
+                        id="HalfMarathon"
+                        value="Half Marathon"
+                    />
+                    <label for="Half Marathon">Half Marathon</label>
+                </div>
+                <div>
+                    <input
+                        type="radio"
+                        name="type"
+                        id="FullMarathon"
+                        value="FullMarathon"
+                    />
+                    <label for="Full Marathon">Full Marathon</label>
+                </div>
+            </div>
+            <br />
+            <div>
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                    required
+                />
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    minlength="4"
+                    required
+                />
+            </div>
+            <div>
+                <p>
+                    <label for="age">Select Age Group:</label>
+                    <select name="ageGroup" id="ageGroup" required>
+                        <option value="" selected>
+                            --Please choose your age group.--
+                        </option>
+                        <option value="under18">Under 18</option>
+                        <option value="18to30">18-30</option>
+                        <option value="30to50">30-50</option>
+                        <option value="50plus">50+</option>
+                    </select>
+                </p>
+            </div>
+            <p>
+                <button>Register!</button>
+            </p>
+        </form>
+    </body>
+</html>
