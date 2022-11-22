@@ -8,11 +8,10 @@ html {
 }
 
 #percentages div {
-    background-color:#e5989b;
+    background-color: #e5989b;
     width: 70%;
     height: 20%;
 }
-
 
 #ems h2 {
     font-size: 2em;
@@ -41,19 +40,16 @@ button {
     color: white;
 }
 
-
-#rems h2{
+#rems h2 {
     font-size: 3rem;
 }
-#rems h3{
+#rems h3 {
     font-size: 2rem;
 }
-#rems ul{
+#rems ul {
     font-size: 1.5rem;
 }
 
-#rems button{
+#rems button {
     font-size: 1.5rem;
 }
-
-
