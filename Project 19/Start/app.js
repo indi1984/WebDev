@@ -60,11 +60,49 @@
 //     console.log("PASSWORD IS TOO SHORT! Must be 6+ characters.")
 // }
 
-const password = prompt('Enter your password:');
+// const password = prompt('Enter your password:');
 
-if (password.length >= 6 && password.indexOf(' ') === -1) {
-    console.log('VALID PASSWORD!')
-} else {
-    console.log('INCORRECT FORMAT FOR PASSORD!')
+// if (password.length >= 6 && password.indexOf(' ') === -1) {
+//     console.log('VALID PASSWORD!')
+// } else {
+//     console.log('INCORRECT FORMAT FOR PASSWORD!')
+// }
+
+// const ageOne = 66;
+
+// if ((ageOne >= 0 && ageOne < 5) || (ageOne >= 65)) {
+//     console.log('TEST')
+// }
+
+const day = Math.floor(Math.random() * (7 - 1 + 1)) + 1;
+
+// if (day === 1) {
+//     console.log('Monday')
+// }
+
+switch (day) {
+    case 1:
+        console.log('Monday');
+        break;
+    case 2:
+        console.log('Tuesday');
+        break;
+    case 3:
+        console.log('Wednesday');
+        break;
+    case 4:
+        console.log('Thursday');
+        break;
+    case 5:
+        console.log('Friday');
+        break;
+    case 6:
+        console.log('Saturday');
+        break;
+    case 7:
+        console.log('Sunday');
+        break;
+    default:
+        console.log('Invalid Day Selection');
+        break;
 }
-
