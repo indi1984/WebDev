@@ -29,8 +29,3 @@
 let luckyNum = 87;
 
 let luckyNums = luckyNum;
-
-
-
-
-
