@@ -6,7 +6,7 @@
 
 // console.log(colors);
 
-let movieLine = ['Tom','Nancy','Bill','Julie','Nancy'];
+// let movieLine = ['Tom','Nancy','Bill','Julie','Nancy'];
 
 // movieLine.push('Pablo');
 // movieLine.push('Oliver');
@@ -21,6 +21,15 @@ let movieLine = ['Tom','Nancy','Bill','Julie','Nancy'];
 // barbell.push(30);
 
 // console.log(barbell);
+
+// let scores = [1,70.100,2500,9,-12,0,34];
+
+// Array.prototype.concat()
+
+let luckyNum = 87;
+
+let luckyNums = luckyNum;
+
 
 
 
