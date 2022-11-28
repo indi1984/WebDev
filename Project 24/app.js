@@ -7,7 +7,7 @@ function singSong() {
 }
 
 function greet(firstName, lastName) {
-    console.log(`Hey there, ${firstName} ${lastName}.`);
+    console.log(`Hey there, ${firstName} ${lastName[0]}.`);
 }
 
 function repeat(str, numTimes) {
@@ -17,3 +17,12 @@ function repeat(str, numTimes) {
     }
     console.log(result);
 }
+
+function add(x, y) {
+    if (typeof x !== 'number' || typeof y !== 'number') {
+        return false;
+    }
+    let sum = x + y;
+    return sum;
+}
+
