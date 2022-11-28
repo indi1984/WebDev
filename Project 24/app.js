@@ -37,7 +37,6 @@ function isShortsWeather(temperature) {
 }
 
 let arr = [1, 2, 3, 4, 'timmy'];
-
 function lastElement(arr) {
     if (arr.length === 0) {
         return null;
@@ -55,7 +54,6 @@ function capitalize(string) {
 }
 
 let input = [1, 2, 3];
-
 function sumArray(array) {
     let sum = 0;
     for (let i = 0; i < array.length; i++) {
