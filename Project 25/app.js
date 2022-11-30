@@ -72,34 +72,42 @@
 // const isSenior = makeBetweenFunc(65, 120);
 
 
-const myMath = {
-    PI: 3.14159,
-    square(num) {
-        return num * num;
-    },
-    cube(num) {
-        return num ** 3;
+// const myMath = {
+//     PI: 3.14159,
+//     square(num) {
+//         return num * num;
+//     },
+//     cube(num) {
+//         return num ** 3;
+//     }
+// };
+
+// const square = {
+//     area(side) {
+//         return side * side;
+//     },
+//     perimeter(side) {
+//         return side * 4;
+//     }
+// };
+
+// const cat = {
+//     name: 'Blue Steele',
+//     color: 'grey',
+//     breed: 'Scottish fold',
+//     meow() {
+//         console.log('THIS IS:', this);
+//         console.log(`${this.name} says 'MEOW MEOW MEOW'`);
+//     }
+// };
+
+// const meow2 = cat.meow;
+
+const hen = {
+    name: 'Helen',
+    eggCount: 0,
+    layAnEgg() {
+        this.eggCount += 1;
+        return console.log('"EGG"');
     }
 };
-
-const square = {
-    area(side) {
-        return side * side;
-    },
-    perimeter(side) {
-        return side * 4;
-    }
-};
-
-const cat = {
-    name: 'Blue Steele',
-    color: 'grey',
-    breed: 'Scottish fold',
-    meow() {
-        console.log('THIS IS:', this)
-        console.log(`${this.name} says 'MEOW MEOW MEOW'`)
-    }
-};
-
-const meow2 = cat.meow;
-
