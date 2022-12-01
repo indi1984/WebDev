@@ -49,8 +49,8 @@ body {
 }
 
 .navbar.scrolled {
-    background: rgb(222, 192, 222);
-    transition: background 500ms;
+    background: #dec0de;
+    transition: background 250ms;
 }
 
 @media (max-width: 1200px) {
