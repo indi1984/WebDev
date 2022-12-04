@@ -39,31 +39,32 @@ const movies = [
 	},
 ]
 
-// **** For Each arrow function:
+// * For Each arrow function:
 // movies.forEach(function (movie) {
 // 	console.log(`${movie.title} - ${movie.score}/100`);
 // });
 
-// **** (All on one line) Long Form:
+// * (All on one line) Long Form:
 // const newMovies = movies.map(function (movie) { return `${movie.title} - ${movie.score / 10}/10` });
 
-// **** (All on one line) Arrow Function when doing more than one thing:
+// * (All on one line) Arrow Function when doing more than one thing:
 // const newMovies = movies.map(movie => { return `${movie.title} - ${movie.score / 10}/10` });
 
-// **** (All on one line) Arrow Furnction when doing only one thing:
+// * (All on one line) Arrow Furnction when doing only one thing:
 // const newMovies = movies.map(movie => (`${movie.title} - ${movie.score / 10}/10`));
 
-// **** (Normal way to write on more than one line) Long Form:
+// * (Normal way to write on more than one line) Long Form:
 // const newMovies = movies.map(function (movie) {
 // 	return `${movie.title} - ${movie.score / 10}/10`
 // });
 
-// **** (Normal way to write on more than one line) Arrow Function when doing more than one thing:
+// * (Normal way to write on more than one line) Arrow Function when doing more than one thing:
 // const newMovies = movies.map(movie => {
 // 	return `${movie.title} - ${movie.score / 10}/10`
 // });
 
-// **** (Normal way to write on more than one line) Arrow Function when doing only one thing:
+// * (Normal way to write on more than one line) Arrow Function when doing only one thing:
 const newMovies = movies.map(movie => (
 	`${movie.title} - ${movie.score / 10}/10`
 ));
+
