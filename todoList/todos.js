@@ -28,3 +28,4 @@ while (input !== 'quit' && input !== 'q' && input !== 'exit') {
     input = prompt('What would you like to do?').toLowerCase();
 }
 console.log('OK! You quit the app.');
+
