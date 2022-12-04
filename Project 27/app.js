@@ -1,6 +1,6 @@
 //todo ADD TO ONE EXAMPLE PAGE
 
-/* //! setTimeout and setInterval methods:
+/* //! setTimeout and setInterval and clearInterval functions:
 
 //* setTimeout (will wait until a specified time passes before calling funciton):
 console.log('HELLOO!...');
