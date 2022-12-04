@@ -70,6 +70,7 @@ const movies = [
 	},
 ]
 
+/*
 //* Filtered arrarys
 const badMovies = movies.filter(m => m.score < 70);
 const recentMovies = movies.filter(m => m.year > 2000);
@@ -78,14 +79,32 @@ const recentMovies = movies.filter(m => m.year > 2000);
 const goodMovies = movies.filter(m => m.score > 80);
 const goodTitles = goodMovies.map(m => m.title)
 
-// OR TO DO IT ALL IN ONE EXPRESSION:
+//* OR TO DO IT ALL IN ONE EXPRESSION:
 const newGoodTitles = movies.filter(m => m.score > 80).map(m => m.title);
 
-//OR SAME ABOVE BUT SOME WRITE TO CLEAN UP:
+//* OR SAME ABOVE BUT SOME WRITE TO CLEAN UP:
 const newNewGoodTitles = movies
 	.filter(m => m.score > 80)
 	.map(m => m.title)
 
+*///! END
+
+//! Some and Every methods:
+
+//? ARRAY FOR EXAMPLES BELOW
+const exams = [80, 98, 92, 78, 77, 90, 89, 81, 77];
+
+//* Every method:
+exams.every(score => score >= 75);
+
+//* Some method:
+movies.some(movie => movie.year > 2015);
+
+
 //! END
+
+//! Reduce method:
+
+
 
 //todo END
