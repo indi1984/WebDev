@@ -42,14 +42,12 @@ const movies = [
 
 //todo ADD TO ONE EXAMPLE FILE:
 
-
 /* //! .forEach method:
 //* For Each arrow function:
 movies.forEach(function (movie) {
 	console.log(`${movie.title} - ${movie.score}/100`);
 });
 */
-
 
 /* //! .map method using Arrow Functions:
 //* (All on one line) Long Form:
@@ -80,6 +78,8 @@ const newMovies = movies.map(movie => (
 const newMovies = movies.map(movie => (
 	${movie.title} - ${movie.score / 10}/10`
 ));
-*/
+*/ //! END
+
+//todo END
 
 
