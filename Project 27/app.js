@@ -16,7 +16,7 @@
 
 	//* clearInterval (will stop what ever setInterval is running according to its id ("const id" above))
 			clearInterval(x);
-*///! END
+*///! END setTimeout and SetInterval and clearInterval methods
 
 
 //! filter method:
@@ -87,7 +87,7 @@ const newNewGoodTitles = movies
 	.filter(m => m.score > 80)
 	.map(m => m.title)
 
-*///! END
+*///! END filter Method
 
 //! Some and Every methods:
 
@@ -101,10 +101,51 @@ exams.every(score => score >= 75);
 movies.some(movie => movie.year > 2015);
 
 
-//! END
+//! END Same and Every Methods
 
-//! Reduce method:
+/*//! Reduce method:
 
+//? ARRAY FOR EXAMPLES BELOW
+const prices = [9.99, 1.50, 19.99, 49.99, 30.50];
+
+//* Previous for...of loop:
+	let total = 0;
+	for (let price of prices) {
+		total += price
+	};
+	console.log(total)
+
+//* Reduce:
+	const total = prices.reduce((total, price) => {
+		return total + price
+	});
+
+//* OR THE SHORTHAND VERSION:
+	const total = prices.reduce((total, price) => total + price);
+
+//* Further Examples:
+	const minPrice = prices.reduce((min, price) => {
+		if (price < min) {
+			return price;
+		}
+		return min;
+	});
+
+//* Even furthe examples:
+	const highestRated = movies.reduce((bestMovie, currMovie) => {
+		if (currMovie.score > bestMovie.score) {
+			return currMovie;
+		}
+		return bestMovie;
+	});
+
+//? ARRAY FOR EXAMPLES BELOW
+	const evens = [2, 4, 6, 8];
+
+//* Start reduce from a value:
+	evens.reduce((sum, num) => sum + num, 100);
+
+*///! END Reduce Method
 
 
 //todo END
