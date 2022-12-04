@@ -60,8 +60,3 @@ const newMovies = movies.map(movie => (
 */ //! END
 
 //todo END
-
-/* //! START
-*/ //! END
-
-
