@@ -39,7 +39,7 @@ const movies = [
 	},
 ]
 
-// * For Each arrow function:
+//* For Each arrow function:
 // movies.forEach(function (movie) {
 // 	console.log(`${movie.title} - ${movie.score}/100`);
 // });
