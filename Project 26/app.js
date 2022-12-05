@@ -22,7 +22,7 @@ const movies = [
 //todo ADD TO ONE EXAMPLE FILE:
 
 /* //! .forEach method:
-//* For Each arrow function:
+//* For Each function:
 movies.forEach(function (movie) {
 	console.log(`${movie.title} - ${movie.score}/100`);
 });
@@ -55,8 +55,11 @@ const newMovies = movies.map(movie => (
 
 //* (Normal way to write on more than one line) Arrow Function when doing only one thing:
 const newMovies = movies.map(movie => (
-	${movie.title} - ${movie.score / 10}/10`
+	`${movie.title} - ${movie.score / 10}/10`
 ));
 */ //! END
 
 //todo END
+const newMovies = movies.map(movie => (
+	`${ movie.title } - ${ movie.score / 10 } / 10`
+));
