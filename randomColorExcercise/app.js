@@ -1,7 +1,7 @@
 const button = document.querySelector('button');
 const h1 = document.querySelector('h1');
 
-button.addEventListener('click', function () {
+button.addEventListener('click', () => {
     const newColor = makeRandColor();
     document.body.style.backgroundColor = newColor;
     h1.innerText = newColor;
