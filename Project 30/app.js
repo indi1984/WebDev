@@ -6,10 +6,10 @@ for (let i = 1; i <= 151; i++) {
 	const label = document.createElement('span');
 	const newImg = document.createElement('img');
 	pokemon.classList.add('pokemon');
-	label.innerText = `#${i}`;
-	newImg.src = `${baseURL}${i}.png`;
 	pokemon.appendChild(newImg);
 	pokemon.appendChild(label);
+	label.innerText = `#${i}`;
+	newImg.src = `${baseURL}${i}.png`;
 	container.appendChild(pokemon);
 };
 
