@@ -12,5 +12,3 @@ for (let i = 1; i <= 151; i++) {
 	newImg.src = `${baseURL}${i}.png`;
 	container.appendChild(pokemon);
 };
-
-
