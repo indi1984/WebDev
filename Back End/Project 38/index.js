@@ -12,7 +12,6 @@ const langCode = franc(input);
 if (langCode === 'und') {
 	console.log('SORRY, We couldn\'t figure it out! Try with more sample text.'.red);
 } else {
-	console.log('');
 	const language = langs.where('3', langCode);
 	console.log(`Our best guess is: ${language.name}.`.green);
 }
