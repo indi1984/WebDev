@@ -5,6 +5,10 @@ const path = require('path');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
-app.get('/', (req, res) => { res.render('home') });
+app.get('/', (req, res) => {
+  res.render('home');
+});
 
-app.listen(3000, () => { console.log('LISTENING ON PORT 3000') });
+app.listen(3000, () => {
+  console.log('LISTENING ON PORT 3000');
+});
