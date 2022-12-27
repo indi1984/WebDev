@@ -12,5 +12,8 @@
   "devDependencies": {
     "eslint": "^8.30.0",
     "eslint-config-google": "^0.14.0"
+  },
+  "dependencies": {
+    "mongoose": "^6.8.1"
   }
 }
