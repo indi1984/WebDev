@@ -2,18 +2,18 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://172.24.224.10:27017/movieApp', {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
-    console.log("Connection OPEN!!");
+      console.log('Connection OPEN!!');
     })
-    .catch (err => {
-        console.log("ERROR!");
-        console.log(err);
+    .catch((err) => {
+      console.log('ERROR!');
+      console.log(err);
     });
 
 const movieSchema = new mongoose.Schema({
-    title: String,
-    year: Number,
-    score: Number,
-    rating: String
+  title: String,
+  year: Number,
+  score: Number,
+  rating: String,
 });
 
 const Movie = mongoose.model('Movie', movieSchema);
