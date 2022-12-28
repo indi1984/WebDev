@@ -6,6 +6,7 @@ const Product = require('./models/product');
 const methodOverride = require('method-override');
 
 
+// ! MONGOOSE CONNECT:
 mongoose.connect('mongodb://172.24.224.10:27017/farmStand', {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
       console.log('MONGO Connection OPEN!!');
@@ -15,9 +16,10 @@ mongoose.connect('mongodb://172.24.224.10:27017/farmStand', {useNewUrlParser: tr
       console.log(err);
     });
 
+
+// ! APP VARIABLES:
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
