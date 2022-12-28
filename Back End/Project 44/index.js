@@ -23,7 +23,7 @@ app.use(methodOverride('_method'));
 
 const categories = ['fruit', 'vegetable', 'dairy'];
 
-// ? GET:
+// ! GET:
 app.get('/products', async (req, res) => {
   const {category} = req.query;
   if (category) {
@@ -52,7 +52,7 @@ app.get('/products/:id/edit', async (req, res) => {
   res.render('products/edit', {product, categories});
 });
 
-// ? POST:
+// ! POST:
 app.post('/products', async (req, res) => {
   const newProduct = new Product(req.body);
   await newProduct.save();
@@ -61,7 +61,7 @@ app.post('/products', async (req, res) => {
 });
 
 
-// ? PUT:
+// ! PUT:
 app.put('/products/:id', async (req, res) => {
   const {id} = req.params;
   const product = await Product.findByIdAndUpdate(id, req.body, {runValidators: true, new: true});
@@ -69,14 +69,14 @@ app.put('/products/:id', async (req, res) => {
   res.redirect(`/products/${product._id}`);
 });
 
-// ? DELETE:
+// ! DELETE:
 app.delete('/products/:id', async (req, res) => {
   const {id} = req.params;
   await Product.findByIdAndDelete(id);
   res.redirect('/products');
 });
 
-// ? LISTEN:
+// ! LISTEN:
 app.listen(3000, () => {
   console.log('APP IS LISTENING ON PORT 3000!');
 });
