@@ -17,6 +17,7 @@ mongoose.connect('mongodb://172.24.224.10:27017/farmStand', {useNewUrlParser: tr
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
@@ -50,7 +51,10 @@ app.get('/products/:id/edit', async (req, res) => {
 });
 
 app.put('/products/:id', async (req, res) => {
-
+  const {id} = req.params;
+  const product = await Product.findByIdAndUpdate(id, req.body, {runValidators: true, new: true});
+  console.log(res.body);
+  res.redirect(`/products/${product._id}`);
 });
 
 app.listen(3000, () => {
