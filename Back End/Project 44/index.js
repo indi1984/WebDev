@@ -7,7 +7,7 @@ const methodOverride = require('method-override');
 
 
 // ! MONGOOSE CONNECT:
-mongoose.connect('mongodb://172.24.224.10:27017/farmStand', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb://172.24.224.10:27017/farmStand2', {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
       console.log('MONGO Connection OPEN!!');
     })
