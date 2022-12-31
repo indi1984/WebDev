@@ -6,7 +6,7 @@ const methodOverride = require('method-override');
 const Campground = require('./models/campground');
 const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError');
-const {campgroundSchema} = require('./schemas');
+const {campgroundSchema} = require('./schemas.js');
 const app = express();
 
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
@@ -16,7 +16,6 @@ mongoose.connect('mongodb://localhost:27017/yelp-camp', {
 });
 
 const db = mongoose.connection;
-
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
   console.log('Database connected...');
@@ -61,23 +60,23 @@ app.post('/campgrounds', validateCampground, catchAsync(async (req, res, next) =
   res.redirect(`/campgrounds/${campground._id}`);
 }));
 
-app.get('/campgrounds/:id', catchAsync(async (req, res, next) => {
+app.get('/campgrounds/:id', catchAsync(async (req, res) => {
   const campground = await Campground.findById(req.params.id);
   res.render('campgrounds/show', {campground});
 }));
 
-app.get('/campgrounds/:id/edit', catchAsync(async (req, res, next) => {
+app.get('/campgrounds/:id/edit', catchAsync(async (req, res) => {
   const campground = await Campground.findById(req.params.id);
   res.render('campgrounds/edit', {campground});
 }));
 
-app.put('/campgrounds/:id', validateCampground, catchAsync(async (req, res, next) => {
+app.put('/campgrounds/:id', validateCampground, catchAsync(async (req, res) => {
   const {id} = req.params;
   const campground = await Campground.findByIdAndUpdate(id, {...req.body.campground});
   res.redirect(`/campgrounds/${campground._id}`);
 }));
 
-app.delete('/campgrounds/:id', catchAsync(async (req, res, next) => {
+app.delete('/campgrounds/:id', catchAsync(async (req, res) => {
   const {id} = req.params;
   await Campground.findByIdAndDelete(id);
   res.redirect('/campgrounds');
