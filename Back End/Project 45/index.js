@@ -3,11 +3,12 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const Product = require('./models/product');
+const Farm = require('./models/farm');
 const AppError = require('./AppError');
 const methodOverride = require('method-override');
 
 
-mongoose.connect('mongodb://172.24.224.10:27017/farmStand2', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb://localhost:27017/farmStandTake2', {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
       console.log('MONGO Connection OPEN!!');
     })
@@ -21,6 +22,26 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
+// * FARM ROUTES
+
+app.get('/farms'), async (req, res) => {
+  const farms = await Farm.find({});
+  res.render('farms/index', {farms});
+};
+
+app.get('/farms/new', (req, res) => {
+  res.render('farms/new');
+});
+
+app.post('/farms'), async (req, res) => {
+  const farm = new Farm(req.body);
+  await farm.save();
+};
+
+
+// * PRODUCT ROUTES
+
+
 const categories = ['fruit', 'vegetable', 'dairy'];
 
 function wrapAsync(fn) {
@@ -29,9 +50,9 @@ function wrapAsync(fn) {
   };
 };
 
-app.get('/', (req, res) => {
-  res.redirect('/products');
-});
+// app.get('/', (req, res) => {
+//   res.redirect('/products');
+// });
 
 app.get('/products', wrapAsync(async (req, res, next) => {
   const {category} = req.query;
