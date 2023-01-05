@@ -16,6 +16,7 @@
             {
                 "code": 120
             }
-        ]
+        ],
+        "require-jsdoc": "off"
     }
 }

@@ -1,32 +1,108 @@
+const express = require('express');
+const app = express();
+const path = require('path');
 const mongoose = require('mongoose');
+const Product = require('./models/product');
+const AppError = require('./AppError');
+const methodOverride = require('method-override');
 
-mongoose.connect('mongodb://172.24.224.10:27017/movieApp', {useNewUrlParser: true, useUnifiedTopology: true})
+
+mongoose.connect('mongodb://172.24.224.10:27017/farmStand2', {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
-      console.log('Connection OPEN!!');
+      console.log('MONGO Connection OPEN!!');
     })
     .catch((err) => {
-      console.log('ERROR!');
+      console.log('MONGO CONNECTION ERROR!');
       console.log(err);
     });
 
-const movieSchema = new mongoose.Schema({
-  title: String,
-  year: Number,
-  score: Number,
-  rating: String,
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
+
+const categories = ['fruit', 'vegetable', 'dairy'];
+
+function wrapAsync(fn) {
+  return function(req, res, next) {
+    fn(req, res, next).catch((e) => next(e));
+  };
+};
+
+app.get('/', (req, res) => {
+  res.redirect('/products');
 });
 
-const Movie = mongoose.model('Movie', movieSchema);
-// const amadeus = new Movie({title: 'Amadeus', year: 1986, score: 9.2, rating: 'R'});
+app.get('/products', wrapAsync(async (req, res, next) => {
+  const {category} = req.query;
+  if (category) {
+    const products = await Product.find({category});
+    res.render('products/index', {products, category});
+  } else {
+    const products = await Product.find({});
+    res.render('products/index', {products, category: 'All'});
+  }
+}));
 
-// Movie.insertMany([
-//     { title: 'Amelie', year: 2001, score: 8.3, rating: 'R' },
-//     { title: 'Alien', year: 1979, score: 8.1, rating: 'R' },
-//     { title: 'The Iron Giant', year: 1999, score: 7.5, rating: 'PG' },
-//     { title: 'Stand By Me', year: 1986, score: 8.6, rating: 'R' },
-//     { title: 'Moonrise Kingdom', year: 2012, score: 7.3, rating: 'PG-13' }
-// ])
-// .then(data => {
-//     console.log("IT WORKED");
-//     console.log(data);
-// });
+app.post('/products', wrapAsync(async (req, res, next) => {
+  const newProduct = new Product(req.body);
+  await newProduct.save();
+  res.redirect(`/products/${newProduct._id}`);
+}));
+
+app.get('/products/new', (req, res) => {
+  res.render('products/new', {categories});
+});
+
+app.get('/products/:id', wrapAsync(async (req, res, next) => {
+  const {id} = req.params;
+  const product = await Product.findById(id);
+  if (!product) {
+    throw new AppError('Product Not Found', 404);
+  }
+  res.render('products/show', {product});
+}));
+
+app.put('/products/:id', wrapAsync(async (req, res, next) => {
+  const {id} = req.params;
+  const product = await Product.findByIdAndUpdate(id, req.body, {runValidators: true, new: true});
+  console.log(res.body);
+  res.redirect(`/products/${product._id}`);
+}));
+
+app.get('/products/:id/edit', wrapAsync(async (req, res, next) => {
+  const {id} = req.params;
+  const product = await Product.findById(id);
+  if (!product) {
+    throw new AppError('Product Not Found', 404);
+  }
+  res.render('products/edit', {product, categories});
+}));
+
+app.delete('/products/:id', wrapAsync(async (req, res, next) => {
+  const {id} = req.params;
+  await Product.findByIdAndDelete(id);
+  res.redirect('/products');
+}));
+
+// ! ERROR HANDLERS ***********************************************
+const handleValidationErr = (err) => {
+  console.dir(err);
+  return new AppError(`Validation Failed... ${err.message}`, 400);
+};
+
+app.use((err, req, res, next) => {
+  console.log(err.name);
+  if (err.name = 'ValidationError') err = handleValidationErr(err);
+  next(err);
+});
+
+app.use((err, req, res, next) => {
+  const {status = 500, message = 'Something went wrong!'} = err;
+  res.status(status).send(message);
+});
+// ! **************************************************************
+
+app.listen(3000, () => {
+  console.log('APP IS LISTENING ON PORT 3000!');
+});
