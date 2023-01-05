@@ -46,6 +46,10 @@ app.get('/farms/:id', wrapAsync(async (req, res, next) => {
   res.render('farms/show', {farm});
 }));
 
+app.delete('/farms/:id', wrapAsync(async (req, res) => {
+  const farm = await Farm.findByIdAndDelete(req.params.id);
+  res.redirect('/farms');
+}));
 
 app.post('/farms', wrapAsync(async (req, res, next) => {
   const farm = new Farm(req.body);
