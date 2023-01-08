@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
-// ! ERROR HANDLERS ***************************************************
+// ERROR HANDLERS ***************************************************
 app.all('*', (req, res, next) => {
   next(new ExpressError('Page Not Found', 404));
 });
@@ -66,7 +66,7 @@ app.use((err, req, res, next) => {
   if (!err.message) err.message = 'Oh No, Something Went Wrong!';
   res.status(statusCode).render('error', {err});
 });
-// ! ******************************************************************
+// ERROR HANDLERS ***************************************************
 
 app.listen(3000, () => {
   console.log('SERVING ON PORT 3000!');
