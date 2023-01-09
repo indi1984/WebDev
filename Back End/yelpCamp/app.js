@@ -66,13 +66,13 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 app.use('/', userRoutes);
 
-// ! FAKE USER ROUTE - TEMPORARY
-app.get('/fakeUser', async (req, res) => {
-  const user = new User({email: 'kharp1984@gmail.com', username: 'indi1984'});
-  const newUser = await User.register(user, 'chicken');
-  res.send(newUser);
-});
-// ! FAKE USER ROUTE - TEMPORARY
+// ? FAKE USER ROUTE - TEMPORARY
+// app.get('/fakeUser', async (req, res) => {
+//   const user = new User({email: 'kharp1984@gmail.com', username: 'indi1984'});
+//   const newUser = await User.register(user, 'chicken');
+//   res.send(newUser);
+// });
+// ? FAKE USER ROUTE - TEMPORARY
 
 app.get('/', (req, res) => {
   res.render('home');
