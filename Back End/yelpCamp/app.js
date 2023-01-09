@@ -53,7 +53,6 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// ! FAKE USER ROUTE - TEMPORARY
 app.use((req, res, next) => {
   res.locals.success = req.flash('success');
   res.locals.error = req.flash('error');
@@ -64,11 +63,13 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 app.use('/', userRoutes);
 
+// ! FAKE USER ROUTE - TEMPORARY
 app.get('/fakeUser', async (req, res) => {
   const user = new User({email: 'kharp1984@gmail.com', username: 'indi1984'});
   const newUser = await User.register(user, 'chicken');
   res.send(newUser);
 });
+// ! FAKE USER ROUTE - TEMPORARY
 
 app.get('/', (req, res) => {
   res.render('home');
