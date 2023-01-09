@@ -30,8 +30,8 @@ router.get('/login', (req, res) => {
 
 router.post('/login', passport.authenticate('local', {failureFlash: true, failureRedirect: '/login'}), (req, res) => {
   req.flash('success', 'Welcome Back!');
-  const redirectUrl = res.locals.redirectUrl || '/campgrounds'; // ! Temp solution (res.locals.redirectUrl) per comments from Rahul on video 519.
-  delete res.locals.redirectUrl; // ! Temp solution (delete res.locals.redirectUrl) per comments from Rahul on video 519.
+  const redirectUrl = res.locals.redirectUrl || '/campgrounds'; // Temp solution (res.locals.redirectUrl) per comments from Rahul on video 519.
+  delete res.locals.redirectUrl; // Temp solution (delete res.locals.redirectUrl) per comments from Rahul on video 519.
   res.redirect(redirectUrl);
 });
 
