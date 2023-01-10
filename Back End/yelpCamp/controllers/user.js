@@ -26,16 +26,18 @@ module.exports.renderLogin = (req, res) => {
 };
 
 module.exports.login = (req, res) => {
-  req.flash('success', 'Welcome Back!');
+  const {username} = req.user;
+  req.flash('success', `Welcome Back, ${username}!`);
   const redirectUrl = res.locals.redirectUrl || '/campgrounds'; // Temp solution (res.locals.redirectUrl) per comments from Rahul on video 519.
   delete res.locals.redirectUrl; // Temp solution (delete res.locals.redirectUrl) per comments from Rahul on video 519.
   res.redirect(redirectUrl);
 };
 
 module.exports.logout = (req, res) => {
+  const {username} = req.user;
   req.logout((err) => {
     if (err) return next(err);
-    req.flash('success', 'Goodbye!');
+    req.flash('success', `Goodbye, ${username}!`);
     res.redirect('/campgrounds');
   });
 };
