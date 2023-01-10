@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate') %>
 
-<div class="row">
+<div class="row mb-5">
     <h1 class="text-center">New Campground</h1>
     <div class="col-6 offset-3">
         <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
@@ -8,6 +8,15 @@
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
                 <input class="form-control" type="text" id="title" name="campground[title]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="campground[description]" required>
+                            </textarea>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -27,16 +36,6 @@
             </div>
 
             <div class="mb-3">
-                <label for="image" class="form-label">Add Image</label>
-                <div class="input-group">
-                    <label for="image" class="input-group-text" style="width: 42px"><i class="fa fa-upload mx-auto"></i></label>
-                    <label for="image" class="form-control filenameLabel">Choose image(s)...</label>
-                </div>
-                <input type="file" name='image' class="form-control inputImg" id="image" multiple required
-                    style="display:none" onchange="displayFilename()">
-            </div>
-
-            <div class="mb-3">
                 <label class="form-label" for="price">Campground Price</label>
                 <div class="input-group">
                     <span class="input-group-text" id="price-label" style="width: 42px">
@@ -51,12 +50,14 @@
             </div>
 
             <div class="mb-3">
-                <label class="form-label" for="description">Description</label>
-                <textarea class="form-control" type="text" id="description" name="campground[description]" required>
-                </textarea>
-                <div class="valid-feedback">
-                    Looks good!
+                <label for="image" class="form-label">Add Image</label>
+                <div class="input-group">
+                    <label for="image" class="input-group-text" style="width: 42px"><i
+                            class="fa fa-upload mx-auto"></i></label>
+                    <label for="image" class="form-control filenameLabel">Click here to add image(s)...</label>
                 </div>
+                <input type="file" name='image' class="form-control inputImg" id="image" multiple required
+                    style="display:none" onchange="displayFilename()">
             </div>
 
             <div class="mb-3">
