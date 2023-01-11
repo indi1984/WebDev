@@ -2,7 +2,6 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 };
 
-
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -59,11 +58,68 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(mongoSanitize());
-// app.use(helmet());
+app.use(helmet());
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+
+// ! ***********************************************************************
+const scriptSrcUrls = [
+  'https://stackpath.bootstrapcdn.com/',
+  'https://api.tiles.mapbox.com/',
+  'https://api.mapbox.com/',
+  'https://kit.fontawesome.com/',
+  'https://cdnjs.cloudflare.com/',
+  'https://cdn.jsdelivr.net/',
+  'https://res.cloudinary.com/dv5vm4sqh/',
+];
+const styleSrcUrls = [
+  'https://cdnjs.cloudflare.com/',
+  'https://kit-free.fontawesome.com/',
+  'https://stackpath.bootstrapcdn.com/',
+  'https://api.mapbox.com/',
+  'https://api.tiles.mapbox.com/',
+  'https://fonts.googleapis.com/',
+  'https://use.fontawesome.com/',
+  'https://cdn.jsdelivr.net/',
+  'https://res.cloudinary.com/dv5vm4sqh/',
+];
+const connectSrcUrls = [
+  'https://*.tiles.mapbox.com',
+  'https://api.mapbox.com',
+  'https://events.mapbox.com',
+  'https://res.cloudinary.com/dv5vm4sqh/',
+];
+const fontSrcUrls = [
+  'https://res.cloudinary.com/dv5vm4sqh/',
+  'https://cdnjs.cloudflare.com',
+];
+
+app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        defaultSrc: [],
+        connectSrc: ['\'self\'', ...connectSrcUrls],
+        scriptSrc: ['\'unsafe-inline\'', '\'self\'', ...scriptSrcUrls],
+        styleSrc: ['\'self\'', '\'unsafe-inline\'', ...styleSrcUrls],
+        workerSrc: ['\'self\'', 'blob:'],
+        objectSrc: [],
+        imgSrc: [
+          '\'self\'',
+          'blob:',
+          'data:',
+          'https://res.cloudinary.com/dthjvj2og/',
+          'https://images.unsplash.com/',
+        ],
+        fontSrc: ['\'self\'', ...fontSrcUrls],
+        mediaSrc: ['https://res.cloudinary.com/dv5vm4sqh/'],
+        childSrc: ['blob:'],
+      },
+    }),
+);
+// ! ***********************************************************************
 
 app.use((req, res, next) => {
   // console.log(req.session);
