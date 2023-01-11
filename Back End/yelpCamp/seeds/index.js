@@ -14,7 +14,7 @@ const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-  console.log('Database connected.');
+  console.log('Mongo Atlas database connected.');
 });
 
 const sample = (array) => array[Math.floor(Math.random() * array.length)];

@@ -33,7 +33,7 @@ mongoose.connect(dbUrl, {
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-  console.log('Database connected...');
+  console.log('Mongo Atlas database connected...');
 });
 
 app.engine('ejs', ejsMate);
@@ -140,7 +140,7 @@ app.use(
 app.use((req, res, next) => {
   // console.log(req.session);
   // console.log(req.redirectUrl);
-  console.log(req.query);
+  // console.log(req.query);
   res.locals.currentUser = req.user;
   res.locals.redirectUrl = req.session.returnTo; // Temp solution per comments on video 519.
   res.locals.success = req.flash('success');
